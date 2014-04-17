@@ -323,7 +323,7 @@ if ($grid) {
 
       # some useless counters for verbose output
       my $etc = time()-$starttime;
-      my $etr = $etc/($iy/($ny*12)) - $etc;
+      my $etr = $etc/(($iy-12)/($ny*12)) - $etc;
       my @timing  = (int($etc/3600), 
                      int($etc/60) - int($etc/3600)*60, 
                      int($etc) - int($etc/60)*60,
@@ -332,8 +332,8 @@ if ($grid) {
                      int($etr) - int($etr/60)*60
           );
       printf("\rSave data (months): %i/%i time: %02i:%02i:%02i ETC, %02i:%02i:%02i ETR",
-             $iy,($ny*12), 
-             $timing[0],$timing[1],$timing[2],$timing[3],$timing[4],$timing[5])
+             $iy-12, $ny*12, 
+             $timing[0], $timing[1], $timing[2], $timing[3], $timing[4], $timing[5])
           if ($verbose);      
     }
     print "\n" if ($verbose);
